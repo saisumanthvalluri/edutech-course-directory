@@ -9,7 +9,7 @@ const Pagination = ({
 	currentPage: number;
 	onChangePage: (page: number) => void;
 }) => {
-	return (
+	return total > 1 ? (
 		<div className={classes?.pagination}>
 			<button disabled={currentPage === 1} onClick={() => onChangePage(currentPage - 1)}>
 				Prev
@@ -26,7 +26,7 @@ const Pagination = ({
 				Next
 			</button>
 		</div>
-	);
+	) : null;
 };
 
 export default Pagination;
