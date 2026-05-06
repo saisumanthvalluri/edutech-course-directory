@@ -5,6 +5,7 @@ export interface CourseDto {
 	duration: string;
 	category: string;
 	rating: number;
+	status: number;
 	timestamp: string;
 }
 

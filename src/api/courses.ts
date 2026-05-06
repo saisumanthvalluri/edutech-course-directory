@@ -1,5 +1,5 @@
 import { CourseDto, PaginatedCoursesResponse } from "../types/courses";
-import { categories, courseNames, duration, instructors, rating } from "../utils/AppConstants";
+import { categories, courseNames, courseStatus, duration, instructors, rating } from "../utils/AppConstants";
 
 function generateCourses(count: number): CourseDto[] {
 	const now = Date.now();
@@ -14,6 +14,7 @@ function generateCourses(count: number): CourseDto[] {
 			duration: duration[Math.floor(Math.random() * duration.length)],
 			category: categories[Math.floor(Math.random() * categories.length)],
 			rating: rating[Math.floor(Math.random() * rating.length)],
+			status: courseStatus[Math.floor(Math.random() * courseStatus.length)],
 			timestamp: new Date(now - offset).toISOString(),
 		});
 	}

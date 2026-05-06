@@ -45,6 +45,8 @@ export const categories = ["Frontend", "Backend", "Database"];
 
 export const rating = [1, 2, 3, 3.5, 4, 4.5, 5];
 
+export const courseStatus = [0, 10, 25, 30, 40, 52, 62, 70, 85, 90, 100];
+
 const AppConstants = Object.freeze({
 	common: {
 		arrowDown: arrowDownIcon,

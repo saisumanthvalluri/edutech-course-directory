@@ -1,11 +1,12 @@
-export const ProfileIcon = ({ width, height }: { width?: string; height?: string }) => (
+export const ProfileIcon = ({ width, height, className }: { width?: string; height?: string; className?: string }) => (
 	<svg
 		width={width || "64px"}
 		height={height || "64px"}
 		viewBox="0 0 24 24"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
-		stroke="#000000">
+		stroke="#000000"
+		className={className || ""}>
 		<g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
 		<g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
 		<g id="SVGRepo_iconCarrier">

@@ -1,4 +1,5 @@
 import { CourseDto } from "../../types/courses";
+import ProgressBar from "../ProgressBar/ProgressBar";
 import "./table.css";
 
 const Table = ({ courses }: { courses: CourseDto[] }) => {
@@ -12,6 +13,7 @@ const Table = ({ courses }: { courses: CourseDto[] }) => {
 						<th>Category</th>
 						<th>Duration</th>
 						<th>Rating</th>
+						<th>Status</th>
 						<th>Created On</th>
 					</tr>
 				</thead>
@@ -24,8 +26,17 @@ const Table = ({ courses }: { courses: CourseDto[] }) => {
 							<td>{item.category}</td>
 							<td>{item.duration}</td>
 							<td>{item.rating}</td>
-
-							<td>{new Date(item.timestamp).toLocaleString()}</td>
+							<td>
+								<ProgressBar filled={item?.status} />
+							</td>
+							<td>
+								{new Date(item.timestamp).toLocaleDateString("en-GB", {
+									day: "2-digit",
+									month: "2-digit",
+									year: "numeric",
+									weekday: "short",
+								})}
+							</td>
 						</tr>
 					))}
 				</tbody>
