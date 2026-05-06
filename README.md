@@ -6,7 +6,7 @@ A responsive frontend application built using **React** to display and filter a 
 
 ## 🚀 Live Demo
 
-👉 _(Add your deployed link here — Vercel / Netlify)_
+👉 https://edutech-course-directory.netlify.app/
 
 ---
 
