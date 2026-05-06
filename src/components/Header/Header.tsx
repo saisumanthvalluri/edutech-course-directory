@@ -4,7 +4,7 @@ const Header = () => {
 	return (
 		<nav className="header">
 			<h1 className="header-title">EduTech Course Directory</h1>
-			<ProfileIcon width="40px" height="40px" />
+			<ProfileIcon className="profile-icon" />
 		</nav>
 	);
 };
