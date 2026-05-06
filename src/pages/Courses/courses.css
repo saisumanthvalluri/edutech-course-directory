@@ -24,6 +24,23 @@
 	font-weight: 400;
 }
 
+.no_courses {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 200px;
+}
+
+.no_courses_title {
+	color: #1e293b;
+	font-size: 24px;
+	font-weight: 500;
+	line-height: 30px;
+	margin: 0;
+	margin-bottom: 8px;
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
 	.courses_main {
 		padding: 20px 10px;

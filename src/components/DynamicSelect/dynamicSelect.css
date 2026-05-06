@@ -5,7 +5,6 @@
 	border: 1px solid #e0e0e0;
 	border-radius: 4px;
 	padding: 0 12px;
-	width: 180px;
 	height: 44px;
 	cursor: pointer;
 	transition: all 0.3s ease;
@@ -52,7 +51,7 @@
 	background-color: #fff;
 	border-radius: 0 0 4px 4px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-	
+	z-index: 200;
 
 	&::-webkit-scrollbar {
 		background-color: #e2e8f0;
@@ -85,8 +84,22 @@
 @media (min-width: 320px) and (max-width: 480px) {
 	.dynamic_select {
 		padding: 0 8px;
-		width: 150px;
+		/* width: 140px; */
 		height: 40px;
+	}
+
+	.select_content {
+		display: flex;
+
+		img {
+			transition: all 0.3s ease;
+			width: 10px;
+			height: 6px;
+		}
+	}
+
+	.placeholder {
+		font-size: 12px;
 	}
 
 	.opt_list {

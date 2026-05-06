@@ -1,14 +1,15 @@
-import React, { useEffect, useState } from "react";
-import Header from "../../components/Header/Header";
-import Table from "../../components/Table/Table";
-import { fetchCourses } from "../../api/courses";
+import { useEffect, useState } from "react";
 import Footer from "../../components/Footer/Footer";
+import Header from "../../components/Header/Header";
+import Pagination from "../../components/Pagination/Pagination";
+import Table from "../../components/Table/Table";
+import TableSkeleton from "../../components/TableSkeleton/TableSkeleton";
+import { loadCourses } from "../../services/Course.service";
+import useFilterStore from "../../store/useFilterStore";
+import { CourseDto } from "../../types/courses";
+import AppConstants from "../../utils/AppConstants";
 import "./courses.css";
 import Filters from "./Filters/Filters";
-import useFilterStore from "../../store/useFilterStore";
-import AppConstants from "../../utils/AppConstants";
-import Pagination from "../../components/Pagination/Pagination";
-import { CourseDto } from "../../types/courses";
 
 const Courses = () => {
 	const [courses, setCourses] = useState<CourseDto[]>([]);
@@ -25,24 +26,35 @@ const Courses = () => {
 
 	useEffect(() => {
 		setLoading(true);
-		fetchCourses(
-			pagination.page,
-			pagination.limit,
-			category.value,
-			duration.value,
-			instructor.value,
-			ratingSort.value,
-		).then((courses) => {
-			setCourses(courses.data);
-			setPagination({
-				total: courses.total,
-				page: courses.page,
-				limit: courses.limit,
-				totalPages: courses.totalPages,
-			});
-		});
-		setLoading(false);
+		const getCourses = async () => {
+			try {
+				const data = await loadCourses(
+					3,
+					pagination.page,
+					pagination.limit,
+					category.value,
+					duration.value,
+					instructor.value,
+					ratingSort.value,
+				);
+				setCourses(data?.data || []);
+				setPagination({
+					total: data?.total || 0,
+					page: data?.page || 0,
+					limit: data?.limit || 0,
+					totalPages: data?.totalPages || 0,
+				});
+				setLoading(false);
+			} catch (error) {
+				setLoading(false);
+				console.error(error);
+				alert("Failed to load courses! please try again.");
+			}
+		};
+
+		getCourses();
 	}, [pagination.page, pagination.limit, category.value, duration.value, instructor.value, ratingSort.value]);
+
 	const filters = [
 		{
 			id: 1,
@@ -73,6 +85,15 @@ const Courses = () => {
 			options: AppConstants?.filters?.ratingSort?.options || [],
 		},
 	];
+
+	const NoCoursesView = () => {
+		return (
+			<div className="no_courses">
+				<h1 className="no_courses_title">No courses found! please try adjusting filters.</h1>
+			</div>
+		);
+	}
+
 	return (
 		<>
 			<Header />
@@ -81,7 +102,13 @@ const Courses = () => {
 					<h1 className="page_title">Courses</h1>
 				</section>
 				<Filters filters={filters} />
-				<Table courses={courses} />
+				{loading ? (
+					<TableSkeleton />
+				) : courses.length > 0 ? (
+					<Table courses={courses} />
+				) : (
+					<NoCoursesView />
+				)}
 				<Pagination
 					currentPage={pagination?.page}
 					onChangePage={(setPage) => setPagination((prev) => ({ ...prev, page: setPage }))}
