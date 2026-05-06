@@ -1,46 +1,178 @@
-# Getting Started with Create React App
+# 🎓 Edutech Course Directory
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive frontend application built using **React** to display and filter a list of courses. This project demonstrates API integration, state management, filtering, and pagination with a clean and user-friendly UI.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Live Demo
 
-### `npm start`
+👉 _(Add your deployed link here — Vercel / Netlify)_
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 📂 GitHub Repository
 
-### `npm test`
+👉 https://github.com/saisumanthvalluri/edutech-course-directory
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🎯 Objective
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The goal of this project is to build a scalable and user-friendly course directory interface that:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Displays course data in a structured format
+- Allows users to filter courses based on different attributes
+- Handles loading, empty, and error states gracefully
+- Implements pagination for better performance and usability
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🛠️ Tech Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- **React.js** – UI development
+- **TypeScript** – Type safety
+- **CSS** – Styling
+- **Mock API** – Simulated backend with pagination
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## ✨ Features
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 📚 Course Listing
 
-## Learn More
+- Displays courses with:
+    - Course Name
+    - Instructor
+    - Duration
+    - Category
+    - Rating
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 🔍 Filtering
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Filter courses by:
+    - Category
+    - Instructor
+    - Duration
+- Dynamic dropdown-based filtering
+- Combined filters supported
+
+### 📄 Pagination
+
+- Client-side pagination
+- Displays:
+    - Current page
+    - Total pages
+    - Total items
+- Prev / Next navigation with boundary checks
+
+### ⚡ States Handling
+
+- Loading state
+- Empty state (“No courses found”)
+- Error handling (simulated API failures)
+
+### 📱 Responsive Design
+
+- Fully responsive across devices
+- Horizontal scroll for filters on mobile
+
+---
+
+## 🧠 Approach & Key Decisions
+
+- **Mock API with Pagination**
+    - Simulates real-world backend behavior
+    - Ensures scalability and realistic data handling
+
+- **State Management**
+    - Used React Hooks and Zustand for filter state management
+
+- **Reusable Components**
+    - `DynamicSelect` for dropdowns
+    - `Table` for course display
+    - Modular structure for scalability
+
+- **Separation of Concerns**
+    - API logic separated from UI
+    - Filters managed independently
+
+---
+
+## 📁 Project Structure
+```
+
+src/
+│
+├── api/ # API logic (mock backend)
+├── components/ # Reusable UI components
+├── pages/ # Main pages (Courses)
+├── store/ # Zustand store for filters
+├── types/ # TypeScript types
+├── utils/ # Constants and helpers
+
+````
+
+---
+
+## ▶️ Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/saisumanthvalluri/edutech-course-directory.git
+````
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Run the app
+
+```bash
+npm start
+```
+
+---
+
+## 🌐 Deployment
+
+This project is deployed using:
+
+- **Vercel**
+
+---
+
+## 🎥 Demo Video
+
+👉 _(Add your Loom / Drive link here)_
+
+The video includes:
+
+- Application walkthrough
+- Code explanation
+- Key decisions and logic
+
+---
+
+## 🚀 Future Improvements
+
+- Add search by name
+- Debounced search input
+- Server-side filtering
+- Infinite scroll
+- Enhanced animations and UI polish
+
+---
+
+## 🙌 Acknowledgment
+
+This project was completed as part of a frontend technical assessment.
+
+---
+
+## 📬 Contact
+
+**Sai Sumanth Valluri**
+📧 [vsaisumanth9951@gmail.com](mailto:vsaisumanth9951@gmail.com)
+🔗 https://www.linkedin.com/in/v-sai-sumanth / https://sai-sumanth-portfolio.vercel.app/
